@@ -141,6 +141,20 @@ class LinkedList {
 		return length;
 	}
 	
+	public void reverse(){
+		Node current = head;
+		Node next = null;
+		Node previous = null;
+		
+		while(current != null){
+			next = current.next;
+			current.next = previous;
+			previous = current;
+			current = next;
+		}
+		head = previous;
+	}	
+	
 	public void printLinkedList(){
 		Node next = head;
 		System.out.print(head.data + " ==> Node ");
@@ -215,6 +229,16 @@ class LinkedList {
 		System.out.println("Printing linkedlist values.");
 		
 		ll.printLinkedList();
+		
+		System.out.println("Reversing linkedlist...");
+		
+		ll.reverse();
+		
+		System.out.println("Printing linkedlist values.");
+		
+		ll.printLinkedList();
+		
+		
 		
 	}
 	
