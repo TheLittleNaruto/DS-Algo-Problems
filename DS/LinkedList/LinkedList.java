@@ -28,7 +28,18 @@ class LinkedList {
 				head = head.next;
 				return true;
 			}else{
-				return findKey(head, key);			
+				Node temp = head.next;
+				Node previous = head;
+				
+				while(temp != null){
+					if(temp.data == key){
+						previous.next = temp.next;
+						return true;
+					}
+					previous = temp;
+					temp = temp.next;
+				}
+				return false;
 			}
 		} else{
 			System.out.println("There is no item to delete.");
@@ -68,27 +79,6 @@ class LinkedList {
 			}
 		}
 		return ret;
-	}
-	
-	private boolean findKey(Node previous, int key){
-		
-		Node temp = previous.next;
-		
-		if(temp.data == key){
-			previous.next = temp.next;
-			return true;
-		}else{
-			previous = previous.next;
-			temp = previous.next;
-			if(temp != null){
-				findKey(previous, key);
-			}else{
-				return false;
-			}
-			
-		}
-		
-		return false;
 	}
 	
 	public boolean search(int key){
