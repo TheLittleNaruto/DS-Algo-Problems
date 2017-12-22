@@ -10,18 +10,16 @@ public class StringReplacement{
 		String str = "I am ABIndia Ab ButAB is in MYAB Blood.";
 		char[] input = str.toCharArray();
 		int i, j;
-		i = j = 0;
-		for(i = 0; i < input.length; i++,j++){
-			if(input[i] == 'A' && i+1 < input.length && input[i+1] == 'B'){
+		for(i = 0, j=0; j < input.length; i++,j++){
+			if(input[j] == 'A' && j+1 < input.length && input[j+1] == 'B'){
 				input[i] = 'C';
 				j++;
-			}else if(j < input.length - (j - i) && j > i){
+			}else {
 				input[i] = input[j];
-				i++;
 			}
 		}
 		
-		System.out.println(String.valueOf(input));
+		System.out.println(String.valueOf(input).substring(0, i));
 	}
 	
 }
