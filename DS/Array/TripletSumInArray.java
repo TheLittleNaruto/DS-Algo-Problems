@@ -12,7 +12,7 @@ public class TripletSumInArray {
 		
 			int diff = sum - arr[i];
 			
-			int startPtr = i;
+			int startPtr = i + 1;
 			int endPtr = arr.length - 1;
 			
 			//Now check which 2 numbers will give the sum equals "diff"
