@@ -6,15 +6,13 @@ public class TripletSumInArray {
 		
 		int sum = 24;
 		
-		int[] triplet = new int[3];
-		
 		boolean flag = false;
 		
 		for(int i = 0; i < arr.length; i++){
 		
 			int diff = sum - arr[i];
 			
-			int startPtr = 0;
+			int startPtr = i;
 			int endPtr = arr.length - 1;
 			
 			//Now check which 2 numbers will give the sum equals "diff"
@@ -22,11 +20,8 @@ public class TripletSumInArray {
 				
 				if(startPtr != i && endPtr != i){
 					if(arr[startPtr] + arr[endPtr] == diff){
-						triplet[0] = arr[i];
-						triplet[1] = arr[startPtr];
-						triplet[2] = arr[endPtr];
-					
-						System.out.println(triplet[0] + " " + triplet[1] + " " + triplet[2]);
+						//print the output
+						System.out.println(arr[i] + " " + arr[startPtr] + " " + arr[endPtr]);
 					
 						flag = true;
 						break;
