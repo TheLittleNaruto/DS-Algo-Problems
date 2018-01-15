@@ -1,29 +1,30 @@
 // Java Program to demonstrate adjacency list 
 // representation of graphs
 import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Graph {
 	
 	//number of vertices of a graph
 	int V;
-	LinkedList<Integer> adjsListArray[];
+	ArrayList<LinkedList<Integer>> adjsListArray;
 	
 	public Graph(int V){
 		this.V = V;
-		adjsListArray = new LinkedList[V];
+		adjsListArray = new ArrayList<LinkedList<Integer>>(V);
 		
 		//Assign a LinkedList to each vertices
 		for(int i=0; i<V; i++){
-			adjsListArray[i] = new LinkedList<>();
+			adjsListArray.add(new LinkedList<Integer>());
 		}
 	}
 	
 	public void addEdge(int src, int dest){
 		
 		//
-		adjsListArray[src].addFirst(dest);
+		adjsListArray.get(src).addFirst(dest);
 		//since it is undirected graph, So
-		adjsListArray[dest].addFirst(src);
+		adjsListArray.get(dest).addFirst(src);
 		
 	}
 	
@@ -32,7 +33,7 @@ public class Graph {
 			System.out.println("Vertices index of adjacency list: " + v);
 			System.out.print("head");
 			
-			for(Integer des: adjsListArray[v]){
+			for(Integer des: adjsListArray.get(v)){
 				System.out.print(" => " + des);
 			}
 			

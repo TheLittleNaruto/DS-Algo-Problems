@@ -146,6 +146,10 @@ class LinkedList {
 	}	
 	
 	public void printLinkedList(){
+		printLinkedList(head);
+	}
+	
+	public void printLinkedList(Node head){
 		Node next = head;
 		System.out.print(head.data + " ==> Node ");
 		while(next.next != null){
@@ -154,6 +158,22 @@ class LinkedList {
 		}
 		
 		System.out.print("\n");
+	}
+	
+	public Node insertAtTail(Node head, int data) {
+
+		Node ret = head;
+		if(head == null){
+			return new Node(data);
+		}
+		// loop until we find the end of the list
+		while ((head.next != null)) {
+           head = head.next;
+		}
+
+		// set the new node to the Object x, next will be null.
+		head.next = new Node(data);
+		return ret;
 	}
 	
 	public static void main(String[] args){
@@ -227,6 +247,10 @@ class LinkedList {
 		System.out.println("Printing linkedlist values.");
 		
 		ll.printLinkedList();
+		
+		head = ll.insertAtTail(head, 65);
+		
+		ll.printLinkedList(head);
 		
 		
 		
