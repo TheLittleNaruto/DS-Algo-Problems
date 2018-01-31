@@ -96,6 +96,22 @@ public class DoublyLinkedList {
 		System.out.print("\n");
 	}
 	
+	public void reverse(){
+		Node current = head;
+		if(current == null) return; // empty list, exit
+		// Going to last Node
+		Node previous = null;
+		Node next;
+		while(current != null) {
+			next = current.next;
+			current.next = previous;
+			current.previous = next;
+			previous = current;
+			current = next;
+		}
+		head = previous;
+	}
+	
 	public static void main(String[] args){
 		
 		DoublyLinkedList DL = new DoublyLinkedList();
@@ -103,6 +119,7 @@ public class DoublyLinkedList {
 		DL.insertAtHead(5); DL.print(); DL.reversePrint();
 		DL.insertAtHead(2); DL.print(); DL.reversePrint();
 		DL.sortedInsert(7); DL.print(); DL.reversePrint();
+		DL.reverse(); DL.print(); DL.reversePrint();
 		
 	}
 }
