@@ -65,8 +65,9 @@ public class DoublyLinkedList {
 		
 		while(temp.next != null){
 			if(temp.next.data >= data){
-				temp.next.previous = newNode;
 				newNode.next = temp.next;
+				newNode.previous = temp;
+				temp.next.previous = newNode;
 				temp.next = newNode;
 				inserted = true;
 				break;
@@ -101,7 +102,7 @@ public class DoublyLinkedList {
 		DL.insertAtHead(6); DL.print(); DL.reversePrint();
 		DL.insertAtHead(5); DL.print(); DL.reversePrint();
 		DL.insertAtHead(2); DL.print(); DL.reversePrint();
-		DL.sortedInsert(3); DL.print(); DL.reversePrint();
+		DL.sortedInsert(7); DL.print(); DL.reversePrint();
 		
 	}
 }
